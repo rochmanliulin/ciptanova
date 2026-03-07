@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "title": "Angel and Devil Girl",
+    "category": "design",
+    "img": "assets/img/portfolio/character-design/Angel and Devil Girl 2-01.jpg",
+    "description": "Desain karakter original dengan gaya unik.",
+    "gallery": [
+      "assets/img/portfolio/character-design/Artboard 1chibi me.jpg",
+      "assets/img/portfolio/character-design/arva white-01.jpg",
+      "assets/img/portfolio/character-design/Asset 2Meeeeeeeeeeeeeeeeeeeeeeeee.jpg",
+      "assets/img/portfolio/character-design/Asset 2REI.jpg",
+      "assets/img/portfolio/character-design/EYE.png"
+    ],
+    "demo_url": null
+  },
+  {
+    "id": 2,
+    "title": "Banaspati Illustration",
+    "category": "design",
+    "img": "assets/img/portfolio/illustration/banaspati-01.jpg",
+    "description": "Ilustrasi unik dari sebuah cerita rakyat.",
+    "gallery": [
+      "assets/img/portfolio/illustration/brain-01.jpg",
+      "assets/img/portfolio/illustration/es jeeruk-01.jpg",
+      "assets/img/portfolio/illustration/eskrim 2-01.jpg",
+      "assets/img/portfolio/illustration/eskrim marah-01.jpg"
+    ],
+    "demo_url": "null"
+  },
+  {
+    "id": 3,
+    "title": "Beasiswa Promotion",
+    "category": "design",
+    "img": "assets/img/portfolio/instagram-feed/beasiswa-01.jpg",
+    "description": "Instagram feed untuk promosi beasiswa.",
+    "gallery": [
+      "assets/img/portfolio/instagram-feed/3 hal berat-01.jpg"
+    ],
+    "demo_url": "null"
+  },
+  {
+    "id": 4,
+    "title": "Logo Brand HAYOLO",
+    "category": "design",
+    "img": "assets/img/portfolio/logo/LOGO HAYOLO-02.jpg",
+    "description": "Logo untuk brand HAYOLO.",
+    "gallery": [
+      "assets/img/portfolio/logo/Asset 2faris png.png",
+      "assets/img/portfolio/logo/tanda seru-01.png"
+    ],
+    "demo_url": "null"
+  },
+  {
+    "id": 5,
+    "title": "Poster Pameran Seni",
+    "category": "design",
+    "img": "assets/img/portfolio/poster/POSTER PAMERAN-01.jpg",
+    "description": "Poster untuk pameran seni.",
+    "gallery": [
+      "assets/img/portfolio/poster/POSTER FIKS-01.jpg",
+      "assets/img/portfolio/poster/SURABAYA-01.jpg"
+    ],
+    "demo_url": "null"
+  }
+]
