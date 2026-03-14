@@ -133,35 +133,35 @@
   /**
    * Init isotope layout and filters
    */
-  document.querySelectorAll('.isotope-layout').forEach(function (isotopeItem) {
-    let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
-    let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
-    let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
+  // document.querySelectorAll('.isotope-layout').forEach(function (isotopeItem) {
+  //   let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
+  //   let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
+  //   let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
 
-    let initIsotope;
-    imagesLoaded(isotopeItem.querySelector('.isotope-container'), function () {
-      initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
-        itemSelector: '.isotope-item',
-        layoutMode: layout,
-        filter: filter,
-        sortBy: sort
-      });
-    });
+  //   let initIsotope;
+  //   imagesLoaded(isotopeItem.querySelector('.isotope-container'), function () {
+  //     initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
+  //       itemSelector: '.isotope-item',
+  //       layoutMode: layout,
+  //       filter: filter,
+  //       sortBy: sort
+  //     });
+  //   });
 
-    isotopeItem.querySelectorAll('.isotope-filters li').forEach(function (filters) {
-      filters.addEventListener('click', function () {
-        isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
-        this.classList.add('filter-active');
-        initIsotope.arrange({
-          filter: this.getAttribute('data-filter')
-        });
-        if (typeof aosInit === 'function') {
-          aosInit();
-        }
-      }, false);
-    });
+  //   isotopeItem.querySelectorAll('.isotope-filters li').forEach(function (filters) {
+  //     filters.addEventListener('click', function () {
+  //       isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
+  //       this.classList.add('filter-active');
+  //       initIsotope.arrange({
+  //         filter: this.getAttribute('data-filter')
+  //       });
+  //       if (typeof aosInit === 'function') {
+  //         aosInit();
+  //       }
+  //     }, false);
+  //   });
 
-  });
+  // });
 
   /**
    * Initiate Pure Counter
@@ -237,18 +237,48 @@
       try {
         const response = await fetch('assets/data/portfolio.json');
         data = await response.json();
-        renderPortfolio(data);
+
+        const isIndexPage = document.body.classList.contains('index-page');
+        const limit = isIndexPage ? 6 : null;
+
+        renderPortfolio(data, limit);
+
+        const container = document.querySelector('.isotope-container');
+
+        // Keduanya butuh Isotope, bedanya portfolio.html punya filter
+        imagesLoaded(container, function () {
+          const iso = new Isotope(container, {
+            itemSelector: '.isotope-item',
+            layoutMode: 'masonry'
+          });
+
+          // Filter handler hanya untuk portfolio.html
+          if (!isIndexPage) {
+            document.querySelectorAll('.isotope-filters li').forEach(function (btn) {
+              btn.addEventListener('click', function () {
+                document.querySelector('.isotope-filters .filter-active')
+                  .classList.remove('filter-active');
+                this.classList.add('filter-active');
+                iso.arrange({ filter: this.getAttribute('data-filter') });
+              });
+            });
+          }
+        });
+
       } catch (error) {
         console.error('Gagal load portfolio.json:', error);
       }
     }
 
-    function renderPortfolio(data) {
+    function renderPortfolio(data, limit = null) {
       const container = document.querySelector('.isotope-container');
       if (!container) return;
       container.innerHTML = '';
 
-      data.forEach(item => {
+      // Potong data jika ada limit
+      const items = limit ? data.slice(0, limit) : data;
+
+      items.forEach(item => {
         const col = document.createElement('div');
         col.className = `col-lg-4 col-md-6 portfolio-item isotope-item filter-${item.category}`;
         col.innerHTML = `
@@ -267,46 +297,45 @@
         container.appendChild(col);
       });
 
-      // Re-init Isotope
-      if (typeof Isotope !== 'undefined') {
-        new Isotope(container, {
-          itemSelector: '.isotope-item',
-          layoutMode: 'masonry'
-        });
-      }
-
       if (typeof AOS !== 'undefined') AOS.refresh();
-      if (typeof GLightbox !== 'undefined') GLightbox({ selector: '.glightbox' });
     }
 
     loadPortfolio();
+
+    // =============================================
+    // Portfolio Modal
+    // =============================================
 
     function fillModal(item) {
       const modalImg = document.getElementById('portfolioModalImg');
       const modalTitle = document.getElementById('portfolioModalTitle');
       const modalDesc = document.getElementById('portfolioModalDesc');
       const galleryEl = document.getElementById('portfolioModalGallery');
+      const demoEl = document.getElementById('portfolioModalDemo');
+
       if (!modalImg || !modalTitle || !modalDesc || !galleryEl) return;
 
+      // Isi konten utama
       modalImg.src = item.img;
       modalTitle.textContent = item.title;
       modalDesc.textContent = item.description;
 
-      // Gallery
+      // Isi gallery dari id related items
       galleryEl.innerHTML = '';
       if (item.gallery && item.gallery.length > 0) {
-        item.gallery.forEach(src => {
-          if (src.trim()) {
-            galleryEl.innerHTML += `
-                <div class="col-12 col-md-3">
-                  <img src="${src.trim()}" class="img-fluid rounded-3 w-100" data-id="${item.id}" alt="">
-                </div>`;
-          }
+        item.gallery.forEach(relatedId => {
+          const relatedItem = data.find(p => p.id === relatedId);
+          if (!relatedItem) return;
+          galleryEl.innerHTML += `
+        <img src="${relatedItem.img}"
+             class="rounded-3"
+             data-id="${relatedItem.id}"
+             alt="${relatedItem.title}"
+             title="${relatedItem.title}">`;
         });
       }
 
       // Demo
-      const demoEl = document.getElementById('portfolioModalDemo');
       if (demoEl) {
         demoEl.innerHTML = item.demo_url
           ? `<a href="${item.demo_url}" target="_blank" class="btn btn-primary mt-3">Lihat Demo</a>`
@@ -314,55 +343,48 @@
       }
     }
 
-    // =============================================
-    // Portfolio Modal - Event Delegation
-    // =============================================
+    // Satu listener untuk semua klik — portfolio img & gallery img
     document.addEventListener('click', function (e) {
-      const trigger = e.target.closest('.portfolio-img');
-      if (!trigger) return;
 
-      const id = parseInt(trigger.getAttribute('data-id'));
-      const item = data.find(p => p.id === id);
-      if (!item) return;
+      // Klik gambar portfolio → buka modal
+      if (e.target.matches('.portfolio-img')) {
+        const id = parseInt(e.target.getAttribute('data-id'));
+        const item = data.find(p => p.id === id);
+        if (!item) return;
 
-      fillModal(item);
+        fillModal(item);
+        const modal = new bootstrap.Modal(document.getElementById('portfolioModal'));
+        modal.show();
+        return;
+      }
 
-      const modal = new bootstrap.Modal(document.getElementById('portfolioModal'));
-      modal.show();
+      // Klik gambar gallery → update konten + scroll ke atas
+      if (e.target.matches('#portfolioModalGallery img')) {
+        const id = parseInt(e.target.getAttribute('data-id'));
+        const item = data.find(p => p.id === id);
+        if (!item) return;
+
+        fillModal(item);
+
+        setTimeout(() => {
+          const modalBody = document.querySelector('#portfolioModal .modal-body');
+          if (modalBody) modalBody.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 50);
+        return;
+      }
+
     });
 
     // Reset modal saat ditutup
     const portfolioModal = document.getElementById('portfolioModal');
     if (portfolioModal) {
       portfolioModal.addEventListener('hidden.bs.modal', function () {
-        const modalImg = document.getElementById('portfolioModalImg');
-        const modalTitle = document.getElementById('portfolioModalTitle');
-        const modalDesc = document.getElementById('portfolioModalDesc');
-        const galleryEl = document.getElementById('portfolioModalGallery');
-
-        if (modalImg) modalImg.src = '';
-        if (modalTitle) modalTitle.textContent = '';
-        if (modalDesc) modalDesc.textContent = '';
-        if (galleryEl) galleryEl.innerHTML = '';
+        document.getElementById('portfolioModalImg').src = '';
+        document.getElementById('portfolioModalTitle').textContent = '';
+        document.getElementById('portfolioModalDesc').textContent = '';
+        document.getElementById('portfolioModalGallery').innerHTML = '';
       });
     }
-
-    // Gallery image click - ganti main image
-    // Gallery image click
-    document.addEventListener('click', function (e) {
-      const galleryImg = e.target.closest('#portfolioModalGallery img');
-      if (!galleryImg) return;
-
-      const id = parseInt(galleryImg.getAttribute('data-id'));
-      const item = data.find(p => p.id === id);
-      if (!item) return;
-
-      // Panggil fillModal untuk update semua
-      fillModal(item);
-
-      // Override main image dengan gambar gallery yang diklik
-      document.getElementById('portfolioModalImg').src = galleryImg.getAttribute('src');
-    });
 
     // =============================================
     // Graphic Design Card Expand/Collapse

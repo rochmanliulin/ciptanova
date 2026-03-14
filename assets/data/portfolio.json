@@ -5,62 +5,61 @@
     "category": "design",
     "img": "assets/img/portfolio/character-design/Angel and Devil Girl 2-01.jpg",
     "description": "Desain karakter original dengan gaya unik.",
-    "gallery": [
-      "assets/img/portfolio/character-design/Artboard 1chibi me.jpg",
-      "assets/img/portfolio/character-design/arva white-01.jpg",
-      "assets/img/portfolio/character-design/Asset 2Meeeeeeeeeeeeeeeeeeeeeeeee.jpg",
-      "assets/img/portfolio/character-design/Asset 2REI.jpg",
-      "assets/img/portfolio/character-design/EYE.png"
-    ],
+    "gallery": [2, 3, 4, 5, 6],
     "demo_url": null
   },
   {
     "id": 2,
-    "title": "Banaspati Illustration",
+    "title": "Artboard Chibi Me",
     "category": "design",
-    "img": "assets/img/portfolio/illustration/banaspati-01.jpg",
-    "description": "Ilustrasi unik dari sebuah cerita rakyat.",
-    "gallery": [
-      "assets/img/portfolio/illustration/brain-01.jpg",
-      "assets/img/portfolio/illustration/es jeeruk-01.jpg",
-      "assets/img/portfolio/illustration/eskrim 2-01.jpg",
-      "assets/img/portfolio/illustration/eskrim marah-01.jpg"
-    ],
+    "img": "assets/img/portfolio/character-design/Artboard 1chibi me.jpg",
+    "description": "arboard.",
+    "gallery": [1, 3, 4, 5, 6],
     "demo_url": "null"
   },
   {
     "id": 3,
-    "title": "Beasiswa Promotion",
+    "title": "Arva White",
     "category": "design",
-    "img": "assets/img/portfolio/instagram-feed/beasiswa-01.jpg",
-    "description": "Instagram feed untuk promosi beasiswa.",
-    "gallery": [
-      "assets/img/portfolio/instagram-feed/3 hal berat-01.jpg"
-    ],
+    "img": "assets/img/portfolio/character-design/arva white-01.jpg",
+    "description": "Arvaaaa.",
+    "gallery": [1, 2, 4, 5, 6],
     "demo_url": "null"
   },
   {
     "id": 4,
-    "title": "Logo Brand HAYOLO",
+    "title": "Meee",
     "category": "design",
-    "img": "assets/img/portfolio/logo/LOGO HAYOLO-02.jpg",
-    "description": "Logo untuk brand HAYOLO.",
-    "gallery": [
-      "assets/img/portfolio/logo/Asset 2faris png.png",
-      "assets/img/portfolio/logo/tanda seru-01.png"
-    ],
+    "img": "assets/img/portfolio/character-design/Asset 2Meeeeeeeeeeeeeeeeeeeeeeeee.jpg",
+    "description": "Me on the moment.",
+    "gallery": [1, 2, 3, 5, 6],
     "demo_url": "null"
   },
   {
     "id": 5,
-    "title": "Poster Pameran Seni",
+    "title": "Rei",
     "category": "design",
-    "img": "assets/img/portfolio/poster/POSTER PAMERAN-01.jpg",
-    "description": "Poster untuk pameran seni.",
-    "gallery": [
-      "assets/img/portfolio/poster/POSTER FIKS-01.jpg",
-      "assets/img/portfolio/poster/SURABAYA-01.jpg"
-    ],
+    "img": "assets/img/portfolio/character-design/Asset 2REI.jpg",
+    "description": "Rei.",
+    "gallery": [1, 2, 3, 4, 6],
+    "demo_url": "null"
+  },
+  {
+    "id": 6,
+    "title": "Eye",
+    "category": "design",
+    "img": "assets/img/portfolio/character-design/EYE.png",
+    "description": "Eye when becoming a character.",
+    "gallery": [1, 2, 3, 4, 5],
+    "demo_url": "null"
+  },
+  {
+    "id": 7,
+    "title": "Fire Girl",
+    "category": "design",
+    "img": "assets/img/portfolio/character-design/fire girl-01.jpg",
+    "description": "Fire.",
+    "gallery": [1, 2, 3, 4, 5],
     "demo_url": "null"
   }
 ]

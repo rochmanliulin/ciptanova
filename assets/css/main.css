@@ -359,7 +359,7 @@ h6 {
 }
 
 /* Mobile: card full width dan layout dalam card benar */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .card-col {
     flex: 0 0 100% !important;
     width: 100%;
@@ -1491,11 +1491,11 @@ section,
   font-family: var(--heading-font);
 }
 
-.portfolio .portfolio-filters li:hover,
+/* .portfolio .portfolio-filters li:hover,
 .portfolio .portfolio-filters li.filter-active {
   color: var(--contrast-color);
   background-color: var(--accent-color);
-}
+} */
 
 .portfolio .portfolio-filters li:first-child {
   margin-left: 0;
@@ -1514,8 +1514,37 @@ section,
   color: var(--surface-color);
 }
 
-.portfolio .portfolio-filters li:hover {
+/* .portfolio .portfolio-filters li:hover {
   background-color: var(--nav-mobile-background-color);
+  color: var(--surface-color);
+} */
+
+.portfolio .portfolio-filters li a {
+  font-size: 18px;
+  position: relative;
+  padding-bottom: 6px;
+}
+
+/* Garis bawah — awalnya tersembunyi */
+.portfolio .portfolio-filters li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0%;
+  height: 2px;
+  background: var(--default-color);
+  transition: width 0.35s ease;
+}
+
+.portfolio .portfolio-filters li.filter-active a::after {
+  width: 100%;
+}
+
+.portfolio .portfolio-filters li.filter-active {
+  color: var(--default-color);
+  background-color: transparent;
 }
 
 @media (max-width: 575px) {
@@ -1597,6 +1626,11 @@ section,
   display: block;
 }
 
+#portfolioModal .modal-body {
+  scroll-behavior: smooth;
+  overflow-y: auto;
+}
+
 #portfolioModalTitle {
   color: var(--default-color);
 }
@@ -1621,7 +1655,13 @@ section,
   cursor: pointer;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
+  #portfolioModal {
+    max-height: 85vh;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
   #portfolioModalGallery {
     flex-wrap: wrap;
     text-align: center;
