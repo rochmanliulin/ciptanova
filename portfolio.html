@@ -40,11 +40,11 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#hero" class="active justify-content-center">Home<br></a></li>
-          <li><a href="#priceList" class="justify-content-center">Price List<br></a></li>
-          <li><a href="#about" class="justify-content-center">About</a></li>
-          <li><a href="#services" class="justify-content-center">Services</a></li>
-          <li><a href="#portfolio" class="justify-content-center">Portofolio</a></li>
+          <li><a href="index.html#hero" class="active justify-content-center">Home<br></a></li>
+          <li><a href="index.html#priceList" class="justify-content-center">Price List<br></a></li>
+          <li><a href="index.html#about" class="justify-content-center">About</a></li>
+          <li><a href="index.html#services" class="justify-content-center">Services</a></li>
+          <li><a href="index.html#portfolio" class="justify-content-center">Portofolio</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -76,9 +76,10 @@
               <li data-filter=".filter-design"><a>Design</a></li>
             </ul>
 
-            <!-- Portfolio Items Container -->
-            <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-            </div> <!-- /Portfolio Items Container -->
+            <div id="subFilters"></div>
+
+            <div class="row gy-4 mt-1 isotope-container" data-aos="fade-up" data-aos-delay="200">
+            </div>
 
           </div>
         </div>
@@ -158,13 +159,15 @@
               <img src="" id="portfolioModalImg" class="img-fluid rounded-3" alt="">
             </div>
             <div class="col-12 col-md-6">
-              <p id="portfolioModalDesc" class="text-dark text-justify px-3 pb-4 pt-lg-5 mt-lg-5"></p>
+              <div id="portfolioModalSubcat" class="px-3 d-flex flex-wrap gap-2 mb-2 pt-lg-5 mt-lg-5"></div>
+              <p id="portfolioModalDesc" class="text-dark text-justify px-3"></p>
+              <div id="portfolioModalDemo" class="px-3 pb-4"></div>
             </div>
           </div>
 
           <div class="modal-line my-4"></div>
 
-          <div id="portfolioModalGallery" class="d-flex gap-4 overflow-auto pb-2"></div>
+          <div id="portfolioModalGallery" class="d-flex gap-5 overflow-auto pb-2"></div>
         </div>
       </div>
     </div>

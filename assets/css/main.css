@@ -1,15 +1,3 @@
-/**
-* Template Name: Gp
-* Template URL: https://bootstrapmade.com/gp-free-multipurpose-html-bootstrap-template/
-* Updated: Aug 15 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
-/*--------------------------------------------------------------
-# Font & Color Variables
-# Help: https://bootstrapmade.com/color-system/
---------------------------------------------------------------*/
 /* Fonts */
 :root {
   --default-font:
@@ -1491,33 +1479,19 @@ section,
   font-family: var(--heading-font);
 }
 
-/* .portfolio .portfolio-filters li:hover,
-.portfolio .portfolio-filters li.filter-active {
-  color: var(--contrast-color);
-  background-color: var(--accent-color);
-} */
-
-.portfolio .portfolio-filters li:first-child {
-  margin-left: 0;
-}
-
-.portfolio .portfolio-filters li:last-child {
-  margin-right: 0;
-}
-
 .portfolio a {
   color: var(--default-color);
   transition: 0.3s;
 }
 
-.portfolio a:hover {
-  color: var(--surface-color);
+.portfolio li a:hover {
+  color: var(--accent-color);
 }
 
-/* .portfolio .portfolio-filters li:hover {
-  background-color: var(--nav-mobile-background-color);
-  color: var(--surface-color);
-} */
+.portfolio li:hover {
+  color: var(--accent-color);
+  background-color: var(--default-color);
+}
 
 .portfolio .portfolio-filters li a {
   font-size: 18px;
@@ -1561,7 +1535,20 @@ section,
 }
 
 .portfolio .portfolio-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
   cursor: pointer;
+
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease;
+}
+
+.portfolio .portfolio-item:hover img {
+  transform: scale(1.08);
+  filter: blur(2px) brightness(0.75);
 }
 
 .portfolio .portfolio-item .portfolio-info {
@@ -1570,7 +1557,7 @@ section,
   left: 12px;
   right: 12px;
   bottom: -100%;
-  z-index: 3;
+  z-index: 2;
   transition: all ease-in-out 0.5s;
   background: color-mix(in srgb, var(--background-color), transparent 10%);
   padding: 15px;
@@ -1664,13 +1651,13 @@ section,
 
   #portfolioModalGallery {
     flex-wrap: wrap;
-    text-align: center;
+    justify-content: center;
   }
 
   #portfolioModalGallery img {
     height: 200px;
     flex-shrink: unset;
-    width: 75% !important;
+    /* width: 75% !important; */
   }
 }
 
@@ -2205,9 +2192,80 @@ section,
   color: var(--accent-color);
 }
 
-/*--------------------------------------------------------------
-# Starter Section Section
---------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
+/* Animasi sebelum data portfolio ditampilkan */
+.skeleton-card {
+  animation: pulse 1.5s infinite;
+}
+
+.skeleton-img {
+  width: 100%;
+  height: 220px;
+  border-radius: 12px;
+  background: #e5e7eb;
+}
+
+.skeleton-text {
+  width: 60%;
+  height: 14px;
+  margin-top: 10px;
+  border-radius: 6px;
+  background: #e5e7eb;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.portfolio-demo-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: var(--heading-font);
+  background-color: var(--accent-color);
+  color: var(--contrast-color) !important;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.2s, transform 0.2s;
+  position: relative;
+  z-index: 10;
+}
+
+.portfolio-demo-btn:hover {
+  background-color: color-mix(in srgb, var(--accent-color), black 15%);
+  transform: translateY(-1px);
+  color: var(--contrast-color) !important;
+}
+
+#portfolioModalDemo a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  font-family: var(--heading-font);
+  background-color: var(--default-color);
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+
+#portfolioModalDemo a:hover {
+  background-color: color-mix(in srgb, var(--default-color), black 15%);
+  color: #fff;
+  transform: translateY(-1px);
 }
