@@ -970,8 +970,8 @@ h6 {
   position: fixed;
   visibility: hidden;
   opacity: 0;
-  right: 15px;
-  bottom: 15px;
+  left: 28px;
+  bottom: 32px;
   z-index: 99999;
   background-color: var(--accent-color);
   width: 40px;
@@ -2238,7 +2238,9 @@ section,
   text-decoration: none;
   white-space: nowrap;
   flex-shrink: 0;
-  transition: background 0.2s, transform 0.2s;
+  transition:
+    background 0.2s,
+    transform 0.2s;
   position: relative;
   z-index: 10;
 }
@@ -2261,11 +2263,63 @@ section,
   background-color: var(--default-color);
   color: #fff;
   text-decoration: none;
-  transition: background 0.2s, transform 0.2s;
+  transition:
+    background 0.2s,
+    transform 0.2s;
 }
 
 #portfolioModalDemo a:hover {
   background-color: color-mix(in srgb, var(--default-color), black 15%);
   color: #fff;
   transform: translateY(-1px);
+}
+
+.wa-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 56px;
+  height: 56px;
+  background: #25d366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  z-index: 999;
+  transition:
+    transform 0.15s,
+    background 0.15s;
+}
+.wa-float:hover {
+  transform: scale(1.1);
+  background: #1ebe57;
+}
+.wa-float svg {
+  width: 30px;
+  height: 30px;
+  fill: white;
+}
+
+/* Animasi pulse */
+.wa-pulse {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(37, 211, 102, 0.4);
+  z-index: 998;
+  animation: pulse 2s ease-out infinite;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
 }

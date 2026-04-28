@@ -71,16 +71,20 @@
         <!-- Menu Item -->
         <div class="row mt-5 pt-5 justify-content-around gy-5" data-aos="fade-up" data-aos-delay="200">
           <div class="col-xl-4 col-md-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon-box">
-              <i class="bi bi-globe2"></i>
-              <h3><a href="#">Web Development</a></h3>
-            </div>
+            <a href="#webDevelopment">
+              <div class="icon-box">
+                <i class="bi bi-globe2"></i>
+                <h3>Web Development</h3>
+              </div>
+            </a>
           </div>
           <div class="col-xl-4 col-md-4" data-aos="fade-up" data-aos-delay="400">
-            <div class="icon-box">
-              <i class="bi bi-palette-fill"></i>
-              <h3><a href="#">Graphic Design</a></h3>
-            </div>
+            <a href="#graphicDesign">
+              <div class="icon-box">
+                <i class="bi bi-palette-fill"></i>
+                <h3>Graphic Design</h3>
+              </div>
+            </a>
           </div>
         </div> <!-- /Menu Item -->
 
@@ -103,7 +107,7 @@
         </div> <!-- /Price Title -->
 
         <!-- Web Development -->
-        <section class="mt-4">
+        <section class="mt-4" id="webDevelopment">
           <!-- Sub Item Title -->
           <div class="text-center">
             <h3 class="list-title">Web Development</h3>
@@ -187,7 +191,7 @@
         </section> <!-- /Web Development -->
 
         <!-- Graphic Design -->
-        <section class="container mt-4 pb-0">
+        <section class="container mt-4 pb-0" id="graphicDesign">
           <!-- Sub Item Title -->
           <div class="text-center">
             <h3 class="list-title">Graphic Design</h3>
@@ -587,7 +591,7 @@
                 <div class="icon">
                   <i class="bi bi-globe2"></i>
                 </div>
-                <a href="service-details.html" class="stretched-link">
+                <a href="#webDevelopment" class="stretched-link">
                   <p class="fw-bold">Web Development</p>
                 </a>
               </div>
@@ -595,7 +599,7 @@
                 <div class="icon">
                   <i class="bi bi-palette-fill"></i>
                 </div>
-                <a href="service-details.html" class="stretched-link">
+                <a href="#graphicDesign" class="stretched-link">
                   <p class="fw-bold">Graphic Design</p>
                 </a>
               </div>
@@ -661,8 +665,8 @@
           <div class="footer-links">
             <h4 class="fst-italic">Our Services</h4>
             <ul class="list-unstyled mb-0">
-              <li class="py-1"><i class="bi bi-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li class="py-1"><i class="bi bi-chevron-right"></i> <a href="#">Graphic Design</a></li>
+              <li class="py-1"><i class="bi bi-chevron-right"></i> <a href="#webDevelopment">Web Development</a></li>
+              <li class="py-1"><i class="bi bi-chevron-right"></i> <a href="#graphicDesign">Graphic Design</a></li>
             </ul>
           </div>
         </div>
@@ -671,7 +675,9 @@
           <div class="footer-links">
             <h4 class="fst-italic">Our Information</h4>
             <ul class="list-unstyled mb-0">
-              <li class="py-1"><i class="bi bi-chevron-right"></i> <a href="#">halo@ciptanova.com</a></li>
+              <li class="py-1"><i class="bi bi-envelope fs-5 pe-2"></i> <a href="mailto:halo@ciptanova.com">halo@ciptanova.com</a></li>
+              <li class="py-1"><i class="bi bi-whatsapp fs-5 pe-2"></i> <a href="https://wa.me/6285111228834?text=Halo,%20saya%20ingin%20bertanya" target="_blank">+62 851-1122-8834</a></li>
+              <li class="py-1"><i class="bi bi-instagram fs-5 pe-2"></i> <a href="https://ig.me/m/ciptanovakreatif" target="_blank">@ciptanovakreatif</a></li>
             </ul>
           </div>
         </div>
@@ -688,6 +694,18 @@
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Whatsapp Button -->
+  <a href="https://wa.me/6285111228834?text=Halo,%20saya%20ingin%20bertanya"
+     target="_blank" class="wa-float" aria-label="Chat WhatsApp">
+    <svg viewBox="0 0 24 24">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.096.537 4.067 1.482 5.791L0 24l6.396-1.466A11.948 11.948 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.87 0-3.607-.5-5.107-1.374l-.366-.216-3.797.87.896-3.697-.239-.381A9.818 9.818 0 012.182 12C2.182 6.576 6.576 2.182 12 2.182S21.818 6.576 21.818 12 17.424 21.818 12 21.818z"/>
+    </svg>
+  </a>
+
+  <!-- Pulse Ring -->
+  <div class="wa-pulse"></div>
 
   <!-- Preloader -->
   <div id="preloader"></div>
